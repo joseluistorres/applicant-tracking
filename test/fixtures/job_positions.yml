@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ror_senior_developer:
+  title: RoR Senior Developer
+  description: Should be able to run migrations
+  active: true
+
+ror_junior_developer:
+  title: RoR Junior Developer
+  description: Should be able to run rails s
+  active: true
