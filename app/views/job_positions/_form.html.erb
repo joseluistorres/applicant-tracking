@@ -1,0 +1,26 @@
+<%= form_with(model: job_position, local: true) do |form| %>
+  <% if job_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_position.errors.count, "error") %> prohibited this job_position from being saved:</h2>
+
+      <ul>
+        <% job_position.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field(:job_position, :title) %>
+  <br/>
+  <%= label_tag(:description, "Description:") %>
+  <%= text_field(:job_position, :description) %>
+  <br/>
+  <%= check_box(:job_position, :active) %>
+  <%= label_tag(:active, "Is Active?:") %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

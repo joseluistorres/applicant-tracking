@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+Title: <%= @job_position.title %> <br/>
+Description: <%= @job_position.description %> <br/>
+Is Active?: <%= @job_position.active %> <br/>
+
+<%= link_to 'Edit', edit_job_position_path(@job_position) %> |
+<%= link_to 'Back', job_positions_path %>

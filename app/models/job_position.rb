@@ -7,4 +7,5 @@
 # @attr description [String]
 # @attr active [Boolean]
 class JobPosition < ApplicationRecord
+  has_many :applicants, dependent: :destroy
 end
