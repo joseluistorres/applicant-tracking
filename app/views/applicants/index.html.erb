@@ -1,0 +1,39 @@
+<h1>Applicants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Bio</th>
+      <th>Date Applied</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @view_model.listings.each do |listing| %>
+      <tr>
+        <td><%= listing.first_name %></td>
+        <td><%= listing.last_name %></td>
+        <td><%= listing.email %></td>
+        <td><%= listing.bio %></td>
+        <td><%= listing.date_applied %></td>
+        <td><%= link_to 'Show', listing.show_url %></td>
+        <td><%= link_to 'Edit', listing.edit_url %></td>
+        <td>
+          <%#= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to(
+            'Delete',
+            listing.delete_url,
+            method: :delete,
+            data: {
+              confirm: listing.delete_confirmation_message
+            }) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

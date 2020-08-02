@@ -9,4 +9,11 @@
 # @attr deleted_at [DateTime] Soft-delete column
 class Applicant < ApplicationRecord
   belongs_to :job_position
+  default_scope { not_deleted }
+
+  scope :not_deleted, -> { where(deleted_at: nil) }
+
+  def display_name
+    "#{first_name} #{last_name}"
+  end
 end
