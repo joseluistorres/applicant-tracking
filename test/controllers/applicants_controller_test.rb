@@ -57,9 +57,11 @@ class ApplicantsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to applicant_url(@applicant)
   end
 
-  # test "should get destroy" do
-  #   get applicants_destroy_url
-  #   assert_response :success
-  # end
+  test "should get destroy" do
+    assert_difference('Applicant.count', -1) do
+      delete applicant_url(@applicant)
+    end
 
+    assert_redirected_to applicants_url
+  end
 end

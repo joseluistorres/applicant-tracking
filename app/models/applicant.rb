@@ -31,4 +31,14 @@ class Applicant < ApplicationRecord
   def display_name
     "#{first_name} #{last_name}"
   end
+
+  def destroy(soft_delete: false)
+    run_callbacks :destroy do
+      if soft_delete
+        update_column(:deleted_at, DateTime.now)
+      else
+        super()
+      end
+    end
+  end
 end

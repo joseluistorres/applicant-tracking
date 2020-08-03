@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   before_action :require_job_position, only: %i[new create]
-  before_action :require_applicant, only: %i[show edit update]
+  before_action :require_applicant, only: %i[show edit update destroy]
 
   def index
     @view_model = Applicants::IndexHTML.new
@@ -47,6 +47,17 @@ class ApplicantsController < ApplicationController
   end
 
   def destroy
+    @view_model = Applicants::IndexHTML.new
+    service_object =
+      Applicants::Destroy.new(applicant: @applicant)
+
+    if service_object.call
+      flash.notice = 'Applicant was successfully deleted.'
+    else
+      flash.error = 'Applicant could not be deleted.'
+    end
+
+    redirect_to @view_model.index_url
   end
 
   private

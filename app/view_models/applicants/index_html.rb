@@ -9,6 +9,10 @@ class Applicants::IndexHTML
     @listings ||= Listing.wrap(@base_arel)
   end
 
+  def index_url
+    router.applicants_path
+  end
+
   class Listing
     include BaseViewModel
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Applicants::Update
   def initialize(applicant:, applicant_params:)
     @applicant = applicant
