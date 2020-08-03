@@ -1,2 +1,6 @@
-<h1>Applicants#edit</h1>
-<p>Find me in app/views/applicants/edit.html.erb</p>
+<h1>Edit Applicant</h1>
+
+<%= render 'form', applicant: @applicant %>
+
+<%= link_to 'Back To Job Positions', @view_model.back_url %> |
+<%= link_to 'Back To All Applicants', @view_model.index_url %>

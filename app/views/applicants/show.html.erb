@@ -1,0 +1,15 @@
+<h1>Applicants Show</h1>
+
+<p id="notice"><%= notice %></p>
+
+<div>
+  <em>First Name:</em> <%= @view_model.first_name %> <br/>
+</div>
+<div>
+  <em>Description:</em> <%= @view_model.last_name %> <br/>
+</div>
+<div>
+  <em>Email:</em> <%= @view_model.email %> <br/>
+</div>
+<%= link_to 'Edit', @view_model.edit_url %> |
+<%= link_to 'Back', @view_model.index_url %>
