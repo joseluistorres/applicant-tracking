@@ -6,6 +6,12 @@ class Applicants::NewHTML
   end
 
   def model
-    @model ||= @job_position.applicants.new
+    @model ||= applicants.new
+  end
+
+  private
+
+  def applicants
+    @job_position.applicants
   end
 end
