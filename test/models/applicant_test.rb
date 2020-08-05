@@ -19,5 +19,17 @@ class ApplicantTest < ActiveSupport::TestCase
         value(subject.errors).must_be_empty
       end
     end
+
+    describe "#destroy" do
+      describe "Given soft_delete = true" do
+        subject { applicants(:one) }
+
+        it "returns true and record is soft deleted" do
+          value(subject.destroy(soft_delete: true)).must_equal(true)
+          record = Applicant.unscoped.find_by(id: subject.reload.id)
+          value(record.deleted_at).wont_be_nil
+        end
+      end
+    end
   end
 end

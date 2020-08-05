@@ -1,0 +1,6 @@
+<h1>New Applicants for: <em><%= @job_position.title %></em></h1>
+
+<%= render 'form', applicant: @applicant %>
+
+<%= link_to 'Back To Job Positions', job_positions_path %>
+<%= link_to 'Back To All Applicants', applicants_path %>
